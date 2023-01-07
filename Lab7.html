@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Lab7</title>
+<link rel="stylesheet" type="text/css" href="index.css" />
+<style>
+body{
+	font-family:Arial;
+}
+
+.btn-group button {
+	position:static;
+	height:25px;
+	background-color: gray;
+	border: 2px solid gray;
+	color: black;
+	box-shadow: 0px 25px 25px 0px white inset;
+	cursor: pointer;
+	border-radius: 2px;
+}
+
+.btn-group:after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+button:hover{
+	border-style: ridge groove groove ridge;
+	border-color: #0096FF;
+	border-width: 2px;
+}
+
+.square {
+	display: none;
+	position: relative;
+	height: 50px;
+	width: 50px;
+	background-color: red;
+	border: 1px solid black;
+}
+
+.triangle {
+	display: none;
+	position: relative;
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 50px solid blue;
+}
+
+.circle {
+	display: none;
+	position: relative;
+	height: 50px;
+	width: 50px;
+	background-color: green;
+	border-radius: 50%;
+	border: 1px solid black;
+}
+</style>
+
+<body>
+
+<input type="number" id="quantity" name="quantity">
+<div class="btn-group">
+	<button id="Btn1" onclick="Square()">Квадрат</button>
+	<button id="Btn2" onclick="Triangle()">Треугольник</button>
+	<button id="Btn3" onclick="Circle()">Круг</button>
+	
+	<div id="Modal1" class="square"></div>
+	<div id="Modal2" class="triangle"></div>
+	<div id="Modal3" class="circle"></div>
+	<p id="demo"></p>
+</div>
+
+<script>
+var modal1 = document.getElementById("Modal1");
+var modal2 = document.getElementById("Modal2");
+var modal3 = document.getElementById("Modal3");
+var btn1 = document.getElementById("Btn1");
+var btn2 = document.getElementById("Btn2");
+var btn3 = document.getElementById("Btn3");
+
+function Square() {
+	var count = document.getElementById("quantity").value;
+
+	for(var i = 0; i < count; i++) {
+		document.getElementById("demo").innerHTML = document.getElementById("Modal1");
+		count = count + 1;
+	}
+}
+
+btn1.onclick = function() {
+	modal1.style.display = "block";
+	modal1.style.top = Math.floor((Math.random() * 200) + 1) + "px";
+	modal1.style.left = Math.floor((Math.random() * 200) + 1) + "px";
+}
+
+btn2.onclick = function() {
+	modal2.style.display = "block";
+	modal2.style.top = Math.floor((Math.random() * 200) + 1) + "px";
+	modal2.style.left = Math.floor((Math.random() * 200) + 1) + "px";
+}
+
+btn3.onclick = function() {
+	modal3.style.display = "block";
+	modal3.style.top = Math.floor((Math.random() * 200) + 1) + "px";
+	modal3.style.left = Math.floor((Math.random() * 200) + 1) + "px";
+}
+
+</script>
+</body>
+</html>
